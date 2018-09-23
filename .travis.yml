@@ -1,5 +1,37 @@
-sudo: false
 language: ruby
+cache:    bundler
+script:   bundle exec rake test
+sudo:     required
+
+before_install:
+  - sudo apt-get build-dep curl
+
+  - wget https://github.com/nghttp2/nghttp2/releases/download/v1.33.0/nghttp2-1.33.0.tar.xz
+  - tar -xf nghttp2-1.33.0.tar.xz
+  - cd nghttp2-1.33.0
+  - ./configure
+  - make
+  - sudo make install
+
+  - wget http://curl.haxx.se/download/curl-7.43.0.tar.bz2
+  - tar -xvjf curl-7.43.0.tar.bz2
+  - cd curl-7.43.0
+  - ./configure
+  - make
+  - sudo make install
+  - sudo ldconfig
+  - curl --version
+
+  - gem update --system
+  - gem install bundler
+
 rvm:
+  - 2.2.10
+  - 2.3.7
+  - 2.4.4
   - 2.5.1
-before_install: gem install bundler -v 1.16.1
+  - ruby-head
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
