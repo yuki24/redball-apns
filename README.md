@@ -1,9 +1,9 @@
-# Redball::Apns
+# Redball::Apns [![Build Status](https://travis-ci.org/yuki24/redball-apns.svg?branch=master)](https://travis-ci.org/yuki24/redball-apns)
 
 Redball is a production-ready APNs (Apple Push Notifiaction Service) client.
 
  * **HTTP/2 done right**: The client ully utilizes HTTP/2's fantastic features, single persistent connection and multiplexing.
- * **Least needed dependency**: The only dependency the gem depends on is the [curb gem](https://github.com/taf2/curb), a wrapper around [libcurl](https://curl.haxx.se/libcurl/), which has been installed and on nearly a billion of machines and deviscs worldwide.
+ * **Least needed dependency**: The only dependency the gem depends on is the [curb gem](https://github.com/taf2/curb), a wrapper around [libcurl](https://curl.haxx.se/libcurl/), which has been installed on nearly a billion of machines and deviscs worldwide.
  * **Proper error handling**: Unlike other gems, the redball gem properly delegates connection errors to the thread that made a request rather than crashing the whole process or squashing.
 
 ## Installation
